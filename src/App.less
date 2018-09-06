@@ -1,17 +1,11 @@
 .App {
   text-align: center;
+  color: #757575;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
 }
 
 .App-title {
@@ -27,6 +21,34 @@
   to { transform: rotate(360deg); }
 }
 
-body{
+.head{
   
+  box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  .head-inner{
+    width: 1000px;
+    display: flex;
+    height: 52px;
+    justify-content:space-between;
+    align-items: center;
+    margin: auto;
+    a{
+      margin: 0 0 0 10px;
+    }
+  }
+  .head-left{
+    .logo{
+      width: 50px;
+    }
+    >*{
+      vertical-align: middle;
+    }
+  }
+}
+
+a{
+  text-decoration: none;
+  color: #757575;
+}
+a:hover,a:focus{
+  color: #454545;
 }

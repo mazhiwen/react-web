@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './images/logo.png';
 import './App.less';
-
+import routes from './routes';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
+
+
 
 class App extends Component {
   render() {
@@ -14,24 +16,29 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {/* <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-
-          </p> */}
-          <header>
-            <div>第二</div>
-            <div>
-              <Link to="/">Home</Link>
-              <Link to="/about">About</Link>
-              <Link to="/topics">Topics</Link>
-              用户
+          
+          <header className="head">
+            <div className="head-inner">
+              <div className="head-left">
+                <img className="logo" src={logo} alt="logo"/>
+                <span>第二</span>
+              </div>
+              <div>
+                <Link to={routes.game.path}>游戏</Link>
+                <Link to="/about">动态</Link>
+              </div>
+              <div>
+                <Link to="/topics">我</Link>
+                <Link to="/topics">赞助商</Link>
+              </div>
             </div>
-            
           </header>
+          <div>
+            body
+            <Route path={routes.game.path} component={routes.game.component} />
+
+
+          </div>
         </div>
 
 
