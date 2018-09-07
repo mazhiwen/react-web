@@ -1,4 +1,4 @@
-@box-shadow-color:rgba(26,26,26,.1);
+@gray-main:rgba(26,26,26,.1);
 @main-scaleplate:.2rem;
 *{
   box-sizing: border-box;
@@ -20,8 +20,8 @@ ul{
 }
 button,input{
   padding: .5rem;
-  border: 1px solid gray;
-  margin: @main-scaleplate;
+  border: 1px solid @gray-main;
+  margin: @main-scaleplate auto;
   border-radius: @main-scaleplate;
 }
 button{
@@ -71,7 +71,7 @@ button{
   }
 }
 .content,.head{
-  box-shadow: 0 1px 3px @box-shadow-color;
+  box-shadow: 0 1px 3px @gray-main;
 }
 .content{
   background: white;
