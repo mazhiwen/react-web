@@ -1,9 +1,17 @@
 import gameList from '../views/game/list'; 
+import gameDetails from '../views/game/details'; 
 
 export default {
   game:{
-    path:'/game',
-    component:gameList
+    list:{
+      path:'/game/list',
+      component:gameList
+    },
+    details:{
+      base:'/game/details',
+      path:'/game/details/:id',
+      component:gameDetails
+    }
   }
 
 

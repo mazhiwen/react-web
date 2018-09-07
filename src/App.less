@@ -1,11 +1,35 @@
-.App {
-  text-align: center;
-  color: #757575;
+@box-shadow-color:rgba(26,26,26,.1);
+@main-scaleplate:.2rem;
+*{
+  box-sizing: border-box;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body{
+  background: #f6f6f6;
+  font-size: 15px;
+  color: #1a1a1a;
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+input,ul{
+  border: none;
+  padding: 0;
+  margin: 0; 
+}
+ul{
+  list-style: none;
+  
+}
+button,input{
+  padding: .5rem;
+  border: 1px solid gray;
+  margin: @main-scaleplate;
+  border-radius: @main-scaleplate;
+}
+button{
+  cursor: pointer;
+}
+.App {
+  
+  
 }
 
 .App-title {
@@ -22,8 +46,9 @@
 }
 
 .head{
+  background: white;
   
-  box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  color: #757575;
   .head-inner{
     width: 1000px;
     display: flex;
@@ -38,17 +63,77 @@
   .head-left{
     .logo{
       width: 50px;
+      animation: App-logo-spin infinite 20s linear;
     }
     >*{
       vertical-align: middle;
     }
   }
 }
-
+.content,.head{
+  box-shadow: 0 1px 3px @box-shadow-color;
+}
+.content{
+  background: white;
+  width: 1000px;
+  margin: 5px auto;
+  padding: .8rem;
+}
 a{
   text-decoration: none;
   color: #757575;
+  &:hover,&:focus{
+    color: #454545;
+  }
 }
-a:hover,a:focus{
-  color: #454545;
+
+
+
+
+
+.filter-box{
+  display: flex;
+  align-items: center;
+  ul{
+    
+    li{
+      display: inline-block;
+    }
+  }
+}
+.sort-wrap{
+  display: flex;
+  align-items: center;
+  .sort-item{
+    text-align: center;
+    position: relative;
+    &>div{
+      
+      height: 30px;
+      
+    }
+    &>ul{
+      position: absolute;
+      top: 30px;
+      left: 0;
+      opacity: 0;
+      transition: opacity 500ms; 
+    }
+    .sort-item-show{
+      opacity: 1;
+    }
+    &>div,&>ul{
+      border: 1px solid gray;
+    }
+    &>div,li{
+      width: 100px;
+    }
+  }
+
+
+}
+.game-item-box{
+  img{
+    width: 100px;
+  }
 }

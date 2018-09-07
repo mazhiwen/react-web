@@ -1,21 +1,107 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  withRouter
 } from 'react-router-dom';
+import logo from '../../../images/logo.png';
+import routes from '../../../routes';
+
 
 class componentInstance extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sortItemShow: false,
+      params:{
+        sortScore:''
+      },
+      gameList:[
+        {
+          name:'name1',
+          score:'32131',
+          hot:'11'
+        },
+        {
+          name:'name2',
+          score:'',
+          hot:''
+        }
+      ]
+    };
+  }
+  handleGameItemClick = (id,event) => {
+    // console.log(`${routes.game.details.path}/${id}`);
+    this.props.history.push(`${routes.game.details.base}/${id}`);
+  };
   render() {
-    
     return (
       <Router>
-        <h1>231312321321</h1>
+        <div>
 
+          <input type="text"/><button>dsa</button>
+          <div className="filter-box">
+            <span>发布年限</span>
+            <ul>
+              <li>2018</li>
+              <li>2019</li>
+            </ul>
+          </div>
+          <div className="filter-box">
+            <span>题材</span>
+            <ul>
+              <li>2018</li>
+              <li>2019</li>
+            </ul>
+          </div>
+          <div className="filter-box">
+            <span>平台</span>
+            <ul>
+              <li>2018</li>
+              <li>2019</li>
+            </ul>
+          </div>
 
+          <div className="sort-wrap">
+            <span>排序</span>
+            <div>
+              <span>评分</span>
+              <select className="sort-item">
+                <option>评分从高到低</option>
+                <option>评分从高到低</option>  
+              </select>
+            </div>
+            <div>
+              <span>热度</span>
+              <select className="sort-item">
+                <option>评分从高到低</option>
+                <option>评分从高到低</option>  
+              </select>
+            </div>
+            <div>
+              <span>发布年限</span>
+              <select className="sort-item">
+                <option>评分从高到低</option>
+                <option>评分从高到低</option>  
+              </select>
+            </div>
+          </div>
+
+          <div>
+            {
+              this.state.gameList.map((value,key)=>
+                <div key={key} onClick={this.handleGameItemClick.bind(this,key)} className="game-item-box">
+                  {value.name}
+                  <img src={logo} alt="logo"/>
+                  评分：{value.score}
+                  热度：{value.hot}
+                </div>
+              )
+            }
+          </div>
+        </div>
       </Router>
     );
   }
 }
 
-export default componentInstance;
+export default withRouter(componentInstance);

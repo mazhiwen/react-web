@@ -24,7 +24,7 @@ class App extends Component {
                 <span>第二</span>
               </div>
               <div>
-                <Link to={routes.game.path}>游戏</Link>
+                <Link to={routes.game.list.path}>游戏</Link>
                 <Link to="/about">动态</Link>
               </div>
               <div>
@@ -33,12 +33,14 @@ class App extends Component {
               </div>
             </div>
           </header>
-          <div>
-            body
-            <Route path={routes.game.path} component={routes.game.component} />
-
+          <div className="content">
+            <Route path={routes.game.list.path} component={routes.game.list.component} />
+            <Route path={routes.game.details.path} component={routes.game.details.component} />
 
           </div>
+          <footer>
+            footer
+          </footer>
         </div>
 
 
