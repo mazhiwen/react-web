@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 import routes from '../../../routes';
+import {TextField,Button,Chip} from '@material-ui/core';
 
 
 class componentInstance extends Component {
@@ -29,6 +30,14 @@ class componentInstance extends Component {
       ]
     };
   }
+  handleChange=()=>e=>{
+    this.setState({
+      'sortItemShow':e.target.value
+    })
+  }
+  handleClick=()=>{
+
+  }
   handleGameItemClick = (id,event) => {
     // console.log(`${routes.game.details.path}/${id}`);
     this.props.history.push(`${routes.game.details.base}/${id}`);
@@ -38,13 +47,26 @@ class componentInstance extends Component {
       <Router>
         <div>
 
-          <input type="text"/><button>dsa</button>
+          <TextField
+            id="name"
+            value={this.state.sortItemShow}
+            onChange={this.handleChange()}
+            margin="normal"
+          />
+          <Button variant="outlined">
+            找一找
+          </Button>
+
+          
           <div className="filter-box">
             <span>发布年限</span>
-            <ul>
-              <li>2018</li>
-              <li>2019</li>
-            </ul>
+            <div>
+              <Chip variant="outlined" label="Basic Chip" onClick={this.handleClick}/>
+              <Chip variant="outlined" label="Basic Chip" onClick={this.handleClick}/>
+              <Chip variant="outlined" label="Basic Chip" onClick={this.handleClick}/>
+              <Chip variant="outlined" label="Basic Chip" onClick={this.handleClick}/>
+
+            </div>
           </div>
           <div className="filter-box">
             <span>题材</span>
