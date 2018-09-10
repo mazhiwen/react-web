@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import {Paper,Menu,MenuItem} from '@material-ui/core';
 
 
 
@@ -15,9 +16,8 @@ class App extends Component {
     
     return (
       <Router>
-        <div className="App">
-          
-          <header className="head">
+        <div className="App">   
+          <Paper className="head">
             <div className="head-inner">
               <div className="head-left">
                 <img className="logo" src={logo} alt="logo"/>
@@ -32,12 +32,12 @@ class App extends Component {
                 <Link to="/topics">赞助商</Link>
               </div>
             </div>
-          </header>
-          <div className="content">
+          </Paper>
+          <Paper className="content">
             <Route path={routes.game.list.path} component={routes.game.list.component} />
             <Route path={routes.game.details.path} component={routes.game.details.component} />
 
-          </div>
+          </Paper>
           <footer>
             footer
           </footer>
