@@ -36,6 +36,10 @@ const theme = createMuiTheme({
         // marginRight:15
       },
     }
+  },
+  typography: {
+    // In Japanese the characters are usually larger.
+    fontSize: 14,
   }
 });
 
