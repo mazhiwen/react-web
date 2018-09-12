@@ -1,0 +1,62 @@
+.gamelist{
+  .search-box{
+    margin-bottom: 1rem;
+  }
+  .search-btn{
+    margin-left: @main-margin !important;
+  }
+  .filter-box{
+  
+    display: flex;
+    align-items: center;
+    >label{
+      width: 80px;
+    }
+    .filter-value{
+      margin: @main-scaleplate;
+    }
+  }
+  
+  .game-item-box{
+    img{
+      width: 100px;
+    }
+  }
+  .sort-wrap{
+    display: flex;
+    align-items: flex-end;
+    
+    .sort-item{
+      text-align: center;
+      position: relative;
+      &>div{
+        
+        height: 30px;
+        
+      }
+      &>ul{
+        position: absolute;
+        top: 30px;
+        left: 0;
+        opacity: 0;
+        transition: opacity 500ms; 
+      }
+      .sort-item-show{
+        opacity: 1;
+      }
+      &>div,&>ul{
+        border: 1px solid gray;
+      }
+      &>div,li{
+        width: 100px;
+      }
+    }
+  
+  }
+  
+}
+
+
+.main-label{
+  width:80px;
+}

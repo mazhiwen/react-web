@@ -1,12 +1,12 @@
-@gray-main:rgba(26,26,26,.1);
-@main-scaleplate:.2rem;
+
+
 *{
   box-sizing: border-box;
 }
 body{
   background: #f6f6f6;
-  font-size: 15px;
-  color: #1a1a1a;
+  font-size: 14px;
+  color: @main-color;
   font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
 }
 
@@ -31,7 +31,7 @@ body{
 
 .head{
   border-radius: 0 !important;
-  color: #757575;
+  color: @main-color;
   .head-inner{
     width: 1000px;
     display: flex;
@@ -58,12 +58,12 @@ body{
 }
 .content{
   width: 1000px;
-  margin: 5px auto;
-  padding: .8rem;
+  margin:@second-margin auto;
+  
 }
 a{
   text-decoration: none;
-  color: #757575;
+  color: @main-color;
   &:hover,&:focus{
     color: #454545;
   }
@@ -73,49 +73,12 @@ a{
 
 
 
-.filter-box{
-  display: flex;
-  align-items: center;
-  ul{
-    
-    li{
-      display: inline-block;
-    }
-  }
-}
-.sort-wrap{
-  display: flex;
-  align-items: center;
-  .sort-item{
-    text-align: center;
-    position: relative;
-    &>div{
-      
-      height: 30px;
-      
-    }
-    &>ul{
-      position: absolute;
-      top: 30px;
-      left: 0;
-      opacity: 0;
-      transition: opacity 500ms; 
-    }
-    .sort-item-show{
-      opacity: 1;
-    }
-    &>div,&>ul{
-      border: 1px solid gray;
-    }
-    &>div,li{
-      width: 100px;
-    }
-  }
 
 
-}
-.game-item-box{
-  img{
-    width: 100px;
-  }
+
+
+
+.sl-paper{
+  padding:0.8rem 1.5rem;
+  margin:0 0 @second-margin 0;
 }
