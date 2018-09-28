@@ -33,12 +33,16 @@ constructor(props) {
       {
         name:'name1',
         score:'32131',
-        hot:'11'
+        hot:'11',
+        enName:'nameeneeee',
+        releaseDate:'2015-08-08'
       },
       {
-        name:'name2',
-        score:'',
-        hot:''
+        name:'name1',
+        score:'32131',
+        hot:'11',
+        enName:'nameeneeee',
+        releaseDate:'2015-08-08'
       }
     ],
     releaseYearList:[
@@ -155,7 +159,7 @@ render() {
           </StyledSelect>
         </FormControl>  
         <FormControl style={{marginRight:15}}>
-          <InputLabel htmlFor="age-simple">发布年限</InputLabel>
+          <InputLabel htmlFor="age-simple">发布日期</InputLabel>
           <StyledSelect
             value={this.state.age}
             onChange={this.handleClick}
@@ -171,14 +175,16 @@ render() {
 
       </div>
 
-      <div>
+      <div className="gamelist-wrap">
         {
           this.state.gameList.map((value,key)=>
             <div key={key} onClick={this.handleGameItemClick.bind(this,key)} className="game-item-box">
-              {value.name}
               <img src={logo} alt="logo"/>
+              <h3>{value.name}</h3>
+              {value.enName}
               评分：{value.score}
               热度：{value.hot}
+              热度：{value.releaseDate}
             </div>
           )
         }
