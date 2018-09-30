@@ -180,11 +180,13 @@ render() {
           this.state.gameList.map((value,key)=>
             <div key={key} onClick={this.handleGameItemClick.bind(this,key)} className="game-item-box">
               <img src={logo} alt="logo"/>
-              <h3>{value.name}</h3>
-              {value.enName}
-              评分：{value.score}
-              热度：{value.hot}
-              热度：{value.releaseDate}
+              <div>
+                <h5>{value.name}</h5>
+                <p>{value.enName}</p>
+                <p>评分：{value.score}</p>
+                <p>热度：{value.hot}</p>
+                <p>发行日期：{value.releaseDate}</p>
+              </div>
             </div>
           )
         }
