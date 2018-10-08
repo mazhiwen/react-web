@@ -179,14 +179,19 @@ render() {
         {
           this.state.gameList.map((value,key)=>
             <div key={key} onClick={this.handleGameItemClick.bind(this,key)} className="game-item-box">
-              <img src={logo} alt="logo"/>
-              <div>
-                <h5>{value.name}</h5>
-                <p>{value.enName}</p>
-                <p>评分：{value.score}</p>
-                <p>热度：{value.hot}</p>
-                <p>发行日期：{value.releaseDate}</p>
+              <div className="gameitem-base-wrap">
+                <img src={logo} alt="logo"/>
+                <div className="gameitem-base">  
+                  <p>评分：{value.score}</p>
+                  <p>热度：{value.hot}</p>
+                  <p>发行日期：{value.releaseDate}</p>
+                </div>
               </div>
+              <div>
+                <h4>{value.name}</h4>
+                <p>{value.enName}</p>
+              </div>
+              
             </div>
           )
         }

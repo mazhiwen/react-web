@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 
-
+import {Paper,Typography} from '@material-ui/core';
 class componentInstance extends Component {
   constructor(props) {
     super(props);
@@ -29,10 +29,10 @@ class componentInstance extends Component {
     return (
       <Router>
         <div>
-          <div>
-            基本信息
+          <Paper>
+            <Typography variant="title">基本信息</Typography>
             
-          </div>
+          </Paper>
           <div>
             评分
           </div>
@@ -45,6 +45,10 @@ class componentInstance extends Component {
           </div>
           <div>
             文章
+
+          </div>
+          <div>
+            版本更新
 
           </div>
         </div>
