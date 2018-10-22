@@ -99,15 +99,16 @@ class componentInstance extends Component {
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                 <ExpansionPanel expanded={true} onChange={this.sysChange('panelb')}>
-                <ExpansionPanelSummary >
-                  <button>军事</button>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  ssss
-                </ExpansionPanelDetails>
+                  <ExpansionPanelSummary >
+                    <button>军事</button>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    ssss
+                  </ExpansionPanelDetails>
                 </ExpansionPanel>
               </ExpansionPanelDetails>
             </ExpansionPanel>
+            
           </Paper>
           <div>
             界面操作
