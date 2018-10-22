@@ -6,7 +6,10 @@ import {
 } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 
-import {Paper,Typography} from '@material-ui/core';
+import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
+  ExpansionPanelDetails} from '@material-ui/core';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 class componentInstance extends Component {
   constructor(props) {
     super(props);
@@ -14,9 +17,32 @@ class componentInstance extends Component {
       sortItemShow: false,
       params:{
         sortScore:''
+      },
+      expanded:'',
+      sysBook:{
+        '父1':{
+          '子1':{
+            '子子1':'dasdasdasdadadadada',
+            '子子2':'dasdasdasdadadadada'
+          },
+          '子2':{
+            '子子3':'dasdasdasdadadadada',
+            '子子4':'dasdasdasdadadadada'
+          }
+        },
+        '父2':{
+          '子1':{
+            '子子1':'dasdasdasdadadadada',
+            '子子2':'dasdasdasdadadadada'
+          },
+          '子2':{
+            '子子3':'dasdasdasdadadadada',
+            '子子4':'dasdasdasdadadadada'
+          }
+        }
       }
     };
-    console.log(this.props.match.params);
+    // console.log(this.props.match.params);
   }
   handleChange = event => {
     this.setState({ 
@@ -25,7 +51,13 @@ class componentInstance extends Component {
       }
     });
   };
+  sysChange= panel=>(event, expanded) => {
+    this.setState({
+      expanded: expanded ? panel : false,
+    });
+  };
   render() {
+    const { expanded } = this.state;
     return (
       <Router>
         <div>
@@ -59,14 +91,24 @@ class componentInstance extends Component {
               </tbody>      
             </table>
           </Paper>
-          <div>
-            系统玩法
-
-
-            外交 
-
-            军事  制造  坦克，飞机
-          </div>
+          <Paper>
+            <Typography variant="title">系统玩法</Typography>
+            <ExpansionPanel expanded={expanded=='panel1'} onChange={this.sysChange('panel1')}>
+              <ExpansionPanelSummary >
+                <button>军事</button>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                <ExpansionPanel expanded={true} onChange={this.sysChange('panelb')}>
+                <ExpansionPanelSummary >
+                  <button>军事</button>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  ssss
+                </ExpansionPanelDetails>
+                </ExpansionPanel>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          </Paper>
           <div>
             界面操作
           </div>
