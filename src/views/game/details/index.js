@@ -10,7 +10,29 @@ import logo from '../../../images/logo.png';
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+function sysBookRender (params){
+  let dom=[];
+  if(Object.prototype.toString.call(params)=="[object Object]"){
+    Object.entries(params).forEach(([key, value]) => {
+      dom.push(
+        <ExpansionPanel expanded={this.state.expanded =='panel1'} onChange={this.sysChange('panel1')}>
+          <ExpansionPanelSummary >
+            <button>{key}</button>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            {sysBookRender(value)}
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      )
+    });
+  }else{
+    dom.push (
+      <span>{params}</span>
+    );
+  }
+  return dom;
+  
+}
 class componentInstance extends Component {
   constructor(props) {
     super(props);
@@ -59,6 +81,7 @@ class componentInstance extends Component {
   };
   render() {
     const { expanded } = this.state;
+     
     return (
       <Router>
       <div className="gamedetails">
