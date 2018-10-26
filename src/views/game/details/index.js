@@ -199,7 +199,15 @@ class componentInstance extends Component {
         </Paper>
         <Paper>
           版本更新
-          
+          <ExpansionPanel >
+            <ExpansionPanelSummary >
+              v1.0.2
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              1.大大说das 
+              2.的撒的奥迪
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
         </Paper>
       </div>
       </Router>
