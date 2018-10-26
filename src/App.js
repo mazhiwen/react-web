@@ -40,6 +40,11 @@ const theme = createMuiTheme({
       root:{
         padding:'2rem'
       }
+    },
+    MuiExpansionPanelDetails:{
+      root:{
+        display: 'block'
+      }
     }
   },
   typography: {

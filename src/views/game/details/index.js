@@ -10,29 +10,7 @@ import logo from '../../../images/logo.png';
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-function sysBookRender (params){
-  let dom=[];
-  if(Object.prototype.toString.call(params)=="[object Object]"){
-    Object.entries(params).forEach(([key, value]) => {
-      dom.push(
-        <ExpansionPanel expanded={this.state.expanded =='panel1'} onChange={this.sysChange('panel1')}>
-          <ExpansionPanelSummary >
-            <button>{key}</button>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            {sysBookRender(value)}
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-      )
-    });
-  }else{
-    dom.push (
-      <span>{params}</span>
-    );
-  }
-  return dom;
-  
-}
+
 class componentInstance extends Component {
   constructor(props) {
     super(props);
@@ -42,28 +20,69 @@ class componentInstance extends Component {
         sortScore:''
       },
       expanded:'',
-      sysBook:{
-        '父1':{
-          '子1':{
-            '子子1':'dasdasdasdadadadada',
-            '子子2':'dasdasdasdadadadada'
-          },
-          '子2':{
-            '子子3':'dasdasdasdadadadada',
-            '子子4':'dasdasdasdadadadada'
-          }
+      sysBook:[
+        {
+          label:'父1',
+          isExpanded:false,
+          children:[
+            {
+              label:'子1',
+              isExpanded:false,
+              children:[
+                {
+                  label:'子11',
+                  isExpanded:false,
+                  conent:'dasdasdasdadadadada1'
+                },
+                {
+                  label:'子12',
+                  isExpanded:false,
+                  conent:'dasdasdasdadadadada1'
+                }
+              ]
+            },
+            {
+              label:'子2',
+              isExpanded:false,
+              children:[
+                {
+                  label:'子21',
+                  isExpanded:false,
+                  conent:'dasdasdasdadadadada1'
+                }
+              ]
+            }
+          ]
         },
-        '父2':{
-          '子1':{
-            '子子1':'dasdasdasdadadadada',
-            '子子2':'dasdasdasdadadadada'
-          },
-          '子2':{
-            '子子3':'dasdasdasdadadadada',
-            '子子4':'dasdasdasdadadadada'
-          }
+        {
+          label:'父2',
+          isExpanded:false,
+          children:[
+            {
+              label:'子2',
+              isExpanded:false,
+              children:[
+                {
+                  label:'子21',
+                  isExpanded:false,
+                  conent:'dasdasdasdadadadada1'
+                }
+              ]
+            },
+            {
+              label:'子2',
+              isExpanded:false,
+              children:[
+                {
+                  label:'子21',
+                  isExpanded:false,
+                  conent:'dasdasdasdadadadada1'
+                }
+              ]
+            }
+          ]
         }
-      }
+      ]
     };
     // console.log(this.props.match.params);
   }
@@ -75,13 +94,40 @@ class componentInstance extends Component {
     });
   };
   sysChange= panel=>(event, expanded) => {
-    this.setState({
-      expanded: expanded ? panel : false,
-    });
+    // this.setState({
+    //   expanded: expanded ? panel : false,
+    // });
+    
   };
   render() {
     const { expanded } = this.state;
-     
+    let sysBookRender=  (params)=>{
+      let dom=[];
+      let index=0;
+      if(Object.prototype.toString.call(params)=="[object Array]"){
+        params.forEach((value,key ) => {
+          dom.push(
+            <ExpansionPanel key={`${key}${index}`} onChange={this.sysChange(value)}>
+              <ExpansionPanelSummary >
+                <button>{value.label}</button>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                {sysBookRender(value.children?value.children:value.conent)}
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          )
+          index++;
+        });
+        
+      }else{
+        dom.push (
+          <span key={`${params}`}>{params}</span>
+        );
+      }
+      return dom;
+      
+    }
+    
     return (
       <Router>
       <div className="gamedetails">
@@ -117,21 +163,7 @@ class componentInstance extends Component {
         </Paper>
         <Paper>
           <Typography variant="title">系统玩法</Typography>
-          <ExpansionPanel expanded={expanded=='panel1'} onChange={this.sysChange('panel1')}>
-            <ExpansionPanelSummary >
-              <button>军事</button>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <ExpansionPanel expanded={true} onChange={this.sysChange('panelb')}>
-                <ExpansionPanelSummary >
-                  <button>军事</button>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  ssss
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+          {sysBookRender(this.state.sysBook)}
         </Paper>
         <Paper className="operate-wrap">
           <Typography variant="title">界面操作</Typography>
@@ -148,13 +180,26 @@ class componentInstance extends Component {
         </Paper>
         <Paper>
           <Typography variant="title">文章</Typography>
-          <Button variant="contained" href="#contained-buttons">
-            Link
-          </Button>
+          <Paper variant="contained" href="#contained-buttons">
+            <Typography variant="title">
+            [官方]这是一个文章的标题
+            </Typography>
+            <Typography variant="body2">
+              Paper can be used to build surface or other elements for your application.
+            </Typography>
+          </Paper>
+          <Paper variant="contained" href="#contained-buttons">
+            <Typography variant="title">
+            这是一个文章的标题
+            </Typography>
+            <Typography variant="body2">
+              Paper can be used to build surface or other elements for your application.
+            </Typography>
+          </Paper>
         </Paper>
         <Paper>
           版本更新
-
+          
         </Paper>
       </div>
       </Router>
