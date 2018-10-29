@@ -90,21 +90,21 @@ a{
 }
 
 
-.gird-table{
+.gird_table{
   border:1px solid rgba(7,28,78,0.10);
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 1rem;
   caption,.caption{
-    text-align: left;
-    font-weight: normal;
-    font-size: 1.3rem;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1rem;
+    line-height: 2rem;
   }  
   td,th{
     box-shadow: 0 0 3px 0 rgba(7,28,78,0.05);
-    border-radius: 3px;
-    padding:1rem 0;
     border:1px solid rgba(7,28,78,0.10);
-    padding:1rem;
+    padding:0.4rem;
   }
   th{
     white-space: nowrap;
@@ -116,5 +116,21 @@ a{
   td{
     background:#ffffff;
     text-align: left;
+  }
+  &.gird_table_3{
+    th{
+      width: 10%;
+    }
+    td{
+      width: 23.3%;
+    }
+  }
+  &.gird_table_4{
+    th{
+      width: 10%;
+    }
+    td{
+      width: 15%;
+    }
   }
 }

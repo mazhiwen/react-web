@@ -3,16 +3,38 @@ import {
   BrowserRouter as Router,
   Route,
   Link
-  
 } from 'react-router-dom';
 import logo from '../../../images/logo.png';
-
+import { withStyles } from '@material-ui/core/styles';
+import classnames from 'classnames';
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+const styles = {
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  }
+};
 
+
+
+function DetailsBox(props){
+  return (
+    <Paper className="details_box">
+      <Typography className="details_box_title" variant="subheading">{props.title}</Typography>
+      {props.children}
+    </Paper>
+  );
+}
 class componentInstance extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       sortItemShow: false,
@@ -101,13 +123,14 @@ class componentInstance extends Component {
   };
   render() {
     const { expanded } = this.state;
+    // const { classes, className } = this.props;
     let sysBookRender=  (params)=>{
       let dom=[];
       let index=0;
       if(Object.prototype.toString.call(params)=="[object Array]"){
         params.forEach((value,key ) => {
           dom.push(
-            <ExpansionPanel key={`${key}${index}`} onChange={this.sysChange(value)}>
+            <ExpansionPanel className="sysbook_wrap" key={`${key}${index}`} onChange={this.sysChange(value)}>
               <ExpansionPanelSummary >
                 <button>{value.label}</button>
               </ExpansionPanelSummary>
@@ -131,9 +154,8 @@ class componentInstance extends Component {
     return (
       <Router>
       <div className="gamedetails">
-        <Paper>
-          <Typography variant="title">基本信息</Typography>
-          <table className="gird-table">
+        <DetailsBox title="基本信息">
+          <table className="gird_table gird_table_3">
             <caption></caption>
             <tbody>
               <tr><th>名称</th><td>名称(enname)</td><th>英文名称</th><td>enname</td><th>发行日期</th><td>enname</td></tr>
@@ -141,10 +163,9 @@ class componentInstance extends Component {
               <tr><th>开发商</th><td>大叔大叔大叔大叔</td><th>评分</th><td>1231</td><th>热度</th><td>1222</td></tr>
             </tbody>      
           </table>
-        </Paper>
-        <Paper>
-          <Typography variant="title">评分</Typography>
-          <table className="gird-table">
+        </DetailsBox>
+        <DetailsBox title="评分">
+          <table className="gird_table gird_table_4">
             <caption>画面</caption>
             <tbody>
               <tr><th>模型细节可见</th><td>3</td><th>维度</th><td>23</td><th>热度</th><td>1222</td><th>光影真实</th><td>3</td></tr>
@@ -152,7 +173,7 @@ class componentInstance extends Component {
               <tr><th>开发商</th><td>大叔大叔大叔大叔</td><th>评分</th><td>1231</td><th>热度</th><td>1222</td><th>热度</th><td>1222</td></tr>
             </tbody>      
           </table>
-          <table className="gird-table">
+          <table className="gird_table gird_table_3">
             <caption>音效</caption>
             <tbody>
               <tr><th>模型细节可见</th><td>3</td><th>维度</th><td>23</td><th>光影真实</th><td>3</td></tr>
@@ -160,11 +181,10 @@ class componentInstance extends Component {
               <tr><th>开发商</th><td>大叔大叔大叔大叔</td><th>评分</th><td>1231</td><th>热度</th><td>1222</td></tr>
             </tbody>      
           </table>
-        </Paper>
-        <Paper>
-          <Typography variant="title">系统玩法</Typography>
+        </DetailsBox>
+        <DetailsBox title="系统玩法">
           {sysBookRender(this.state.sysBook)}
-        </Paper>
+        </DetailsBox>
         <Paper className="operate-wrap">
           <Typography variant="title">界面操作</Typography>
           <img src={logo} alt="logo"/>
@@ -208,6 +228,8 @@ class componentInstance extends Component {
               2.的撒的奥迪
             </ExpansionPanelDetails>
           </ExpansionPanel>
+          <Button>more</Button>
+          
         </Paper>
       </div>
       </Router>
@@ -215,4 +237,4 @@ class componentInstance extends Component {
   }
 }
 
-export default componentInstance;
+export default withStyles(styles)(componentInstance);

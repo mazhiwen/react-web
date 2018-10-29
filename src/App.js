@@ -38,7 +38,8 @@ const theme = createMuiTheme({
     },
     MuiPaper:{
       root:{
-        padding:'2rem'
+        padding:'2rem',
+        marginTop:3
       }
     },
     MuiExpansionPanelDetails:{
