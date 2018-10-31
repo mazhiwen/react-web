@@ -54,7 +54,7 @@ class componentInstance extends Component {
                 {
                   label:'子11',
                   isExpanded:false,
-                  conent:'dasdasdasdadadadada1'
+                  conent:'dasdasdasdadadadada1,这段可以是图文，图文内容需要有特殊传输解析格式'
                 },
                 {
                   label:'子12',
@@ -131,10 +131,10 @@ class componentInstance extends Component {
         params.forEach((value,key ) => {
           dom.push(
             <ExpansionPanel className="sysbook_wrap" key={`${key}${index}`} onChange={this.sysChange(value)}>
-              <ExpansionPanelSummary >
-                <button>{value.label}</button>
+              <ExpansionPanelSummary className="sysbook_head">
+                <Button className="sysbook_btn">{value.label}</Button>
               </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
+              <ExpansionPanelDetails className="sysbook_content">
                 {sysBookRender(value.children?value.children:value.conent)}
               </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -144,7 +144,7 @@ class componentInstance extends Component {
         
       }else{
         dom.push (
-          <span key={`${params}`}>{params}</span>
+          <p key={`${params}`}>{params}</p>
         );
       }
       return dom;
@@ -185,19 +185,20 @@ class componentInstance extends Component {
         <DetailsBox title="系统玩法">
           {sysBookRender(this.state.sysBook)}
         </DetailsBox>
-        <Paper className="operate-wrap">
-          <Typography variant="title">界面操作</Typography>
-          <img src={logo} alt="logo"/>
-          <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
-          <p>2.的撒的撒的撒的</p>
-          <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
-          <p>4.的撒的撒的撒的</p>
-          <img src={logo} alt="logo"/>
-          <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
-          <p>2.的撒的撒的撒的</p>
-          <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
-          <p>4.的撒的撒的撒的</p>
-        </Paper>
+        <DetailsBox title="界面操作">
+          <div className="operate_wrap">
+            <div>
+              <img src={logo} alt="logo"/>
+              <p>图片标数字，下方文字说明数字</p>
+              <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
+              <p>2.的撒的撒的撒的</p>
+              <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
+              <p>4.的撒的撒的撒的</p>
+
+            </div>
+          </div>
+        </DetailsBox>
+
         <Paper>
           <Typography variant="title">文章</Typography>
           <Paper variant="contained" href="#contained-buttons">
