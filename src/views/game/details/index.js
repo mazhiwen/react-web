@@ -244,7 +244,7 @@ class componentInstance extends Component {
               2.的撒的奥迪
             </ExpansionPanelDetails>
           </ExpansionPanel>
-          <Button>more</Button>
+          <Button variant="outlined" className="morebtn" size="small">更多...</Button>
           
         </Paper>
       </div>
