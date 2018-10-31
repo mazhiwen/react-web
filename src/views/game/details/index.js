@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
+import routes from '../../../routes';
+
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
-  ExpansionPanelDetails,Button} from '@material-ui/core';
+  ExpansionPanelDetails,Button,List,ListItem,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const styles = {
   root: {
@@ -32,6 +35,8 @@ function DetailsBox(props){
     </Paper>
   );
 }
+
+
 class componentInstance extends Component {
   constructor(props) {
     console.log(props);
@@ -121,10 +126,13 @@ class componentInstance extends Component {
     // });
     
   };
+  historyPush=(path)=>{
+    this.props.history.push(path);
+  }
   render() {
     const { expanded } = this.state;
-    // const { classes, className } = this.props;
-    let sysBookRender=  (params)=>{
+    const { history } = this.props;
+    const sysBookRender=  (params)=>{
       let dom=[];
       let index=0;
       if(Object.prototype.toString.call(params)=="[object Array]"){
@@ -149,6 +157,21 @@ class componentInstance extends Component {
       }
       return dom;
       
+    }
+    const ArticlelistBox=(props)=>{
+      return (
+        <div className="article_box">
+          <h4 onClick={this.historyPush.bind(this,`${routes.game.details.base}/33`)}>
+          [官方]这是一个文章的标题
+          </h4>
+          <p>
+            Paper can be used to build surface or other elements for your application.Paper can be used to build surface or other elements for your application.
+            Paper can be used to build surface or other elements for your application.Paper can be used to build surface or other elements for your application.
+          </p>
+          <Divider className="article_box_hr"/>
+        </div>
+        
+      );
     }
     
     return (
@@ -187,37 +210,29 @@ class componentInstance extends Component {
         </DetailsBox>
         <DetailsBox title="界面操作">
           <div className="operate_wrap">
-            <div>
-              <img src={logo} alt="logo"/>
-              <p>图片标数字，下方文字说明数字</p>
-              <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
-              <p>2.的撒的撒的撒的</p>
-              <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
-              <p>4.的撒的撒的撒的</p>
-
-            </div>
+            <p className="caption">主界面</p>
+            <img src={logo} alt="logo"/>
+            <p>5.图片标数字，下方文字说明数字</p>
+            <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
+            <p>2.的撒的撒的撒的</p>
+            <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
+            <p>4.的撒的撒的撒的</p>
+          </div>
+          <div className="operate_wrap">
+            <p className="caption">二界面</p>
+            <img src={logo} alt="logo"/>
+            <p>0.图片标数字，下方文字说明数字</p>
+            <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
+            <p>2.的撒的撒的撒的</p>
+            <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
+            <p>4.的撒的撒的撒的</p>
           </div>
         </DetailsBox>
 
-        <Paper>
-          <Typography variant="title">文章</Typography>
-          <Paper variant="contained" href="#contained-buttons">
-            <Typography variant="title">
-            [官方]这是一个文章的标题
-            </Typography>
-            <Typography variant="body2">
-              Paper can be used to build surface or other elements for your application.
-            </Typography>
-          </Paper>
-          <Paper variant="contained" href="#contained-buttons">
-            <Typography variant="title">
-            这是一个文章的标题
-            </Typography>
-            <Typography variant="body2">
-              Paper can be used to build surface or other elements for your application.
-            </Typography>
-          </Paper>
-        </Paper>
+        <DetailsBox title="文章">
+          <ArticlelistBox></ArticlelistBox>
+          <ArticlelistBox></ArticlelistBox>
+        </DetailsBox>
         <Paper>
           版本更新
           <ExpansionPanel >
@@ -238,4 +253,4 @@ class componentInstance extends Component {
   }
 }
 
-export default withStyles(styles)(componentInstance);
+export default withRouter(withStyles(styles)(componentInstance));
