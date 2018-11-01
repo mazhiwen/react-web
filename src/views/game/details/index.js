@@ -11,32 +11,37 @@ import classnames from 'classnames';
 import routes from '../../../routes';
 
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
-  ExpansionPanelDetails,Button,List,ListItem,Divider} from '@material-ui/core';
+  ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-const styles = {
-  root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-  }
-};
-
 
 
 function DetailsBox(props){
   return (
     <Paper className="details_box">
-      <Typography className="details_box_title" variant="subheading">{props.title}</Typography>
+      <Typography className="details_box_title" variant="subtitle1">
+        {props.title}
+      </Typography>
       {props.children}
     </Paper>
   );
 }
 
-
+// const styles = theme => ({
+//   container: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//   },
+//   textField: {
+//     marginLeft: theme.spacing.unit,
+//     marginRight: theme.spacing.unit,
+//   },
+//   dense: {
+//     marginTop: 16,
+//   },
+//   menu: {
+//     width: 200,
+//   },
+// });
 class componentInstance extends Component {
   constructor(props) {
     console.log(props);
@@ -119,6 +124,7 @@ class componentInstance extends Component {
         sortScore:event.target.value
       }
     });
+  
   };
   sysChange= panel=>(event, expanded) => {
     // this.setState({
@@ -131,7 +137,7 @@ class componentInstance extends Component {
   }
   render() {
     const { expanded } = this.state;
-    const { history } = this.props;
+    const { classes } = this.props;
     const sysBookRender=  (params)=>{
       let dom=[];
       let index=0;
@@ -233,24 +239,38 @@ class componentInstance extends Component {
           <ArticlelistBox></ArticlelistBox>
           <ArticlelistBox></ArticlelistBox>
         </DetailsBox>
-        <Paper>
-          版本更新
-          <ExpansionPanel >
-            <ExpansionPanelSummary >
-              v1.0.2
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              1.大大说das 
-              2.的撒的奥迪
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+        <DetailsBox title="版本更新">
+          <TextField
+            label="v1.0.2" multiline disabled fullWidth 
+            InputProps={{
+              readOnly: true,
+            }}
+            defaultValue={
+`1.大大说das 
+2.的撒的奥迪
+`
+            }
+            margin="normal" variant="outlined" rowsMax="4"
+          />
+          <TextField
+            label="v1.0.2" multiline disabled fullWidth 
+            InputProps={{
+              readOnly: true,
+            }}
+            defaultValue={
+`1.大大说das 
+2.的撒的奥迪
+`
+            }
+            margin="normal" variant="outlined" rowsMax="4"
+          />
           <Button variant="outlined" className="morebtn" size="small">更多...</Button>
           
-        </Paper>
+        </DetailsBox>
       </div>
       </Router>
     );
   }
 }
 
-export default withRouter(withStyles(styles)(componentInstance));
+export default withRouter(componentInstance);

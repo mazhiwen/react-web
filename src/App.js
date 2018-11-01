@@ -32,8 +32,7 @@ const theme = createMuiTheme({
   overrides:{
     MuiFormControl: {
       root: {
-        // padding:'1rem',
-        // marginRight:15
+        
       },
     },
     MuiPaper:{
