@@ -6,13 +6,13 @@ import {
 import logo from '../../../images/logo.png';
 import routes from '../../../routes';
 import {TextField,Button,Chip,Select,MenuItem,FormControl,InputLabel,Divider,Paper,FormControlLabel,FormGroup} from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles,createStyles } from '@material-ui/core/styles';
 
-const StyledSelect = withStyles({
+const StyledSelect = withStyles(createStyles({
   root: {
     width: 100,
-  }
-})(Select);
+  },
+}))(Select);
 const sortItemForm=(
   <FormControl style={{
     marginLeft:20
@@ -72,7 +72,6 @@ handleGameItemClick = (id,event) => {
 };
 render() {
   return (
-  <Router>
   <div className="gamelist">
     <Paper className="sl-paper">
       <div className="search-box">
@@ -126,11 +125,6 @@ render() {
           <StyledSelect
             value={this.state.age}
             onChange={this.handleClick}
-            classes={{
-              root:{
-                height: 48
-              }
-            }}
             inputProps={{
               name: 'age',
               id: 'age-simple',
@@ -198,7 +192,6 @@ render() {
       </div>
     </Paper>  
   </div>
-  </Router>
   );
 }
 }

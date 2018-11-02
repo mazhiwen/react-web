@@ -213,6 +213,7 @@ class componentInstance extends Component {
         </DetailsBox>
         <DetailsBox title="系统玩法">
           {sysBookRender(this.state.sysBook)}
+          <Button variant="outlined" className="morebtn" size="small">更多...</Button>
         </DetailsBox>
         <DetailsBox title="界面操作">
           <div className="operate_wrap">
@@ -233,11 +234,13 @@ class componentInstance extends Component {
             <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
             <p>4.的撒的撒的撒的</p>
           </div>
+          <Button variant="outlined" className="morebtn" size="small">更多...</Button>
         </DetailsBox>
 
         <DetailsBox title="文章">
           <ArticlelistBox></ArticlelistBox>
           <ArticlelistBox></ArticlelistBox>
+          <Button variant="outlined" className="morebtn" size="small">更多...</Button>
         </DetailsBox>
         <DetailsBox title="版本更新">
           <TextField
@@ -264,7 +267,11 @@ class componentInstance extends Component {
             }
             margin="normal" variant="outlined" rowsMax="4"
           />
-          <Button variant="outlined" className="morebtn" size="small">更多...</Button>
+          <Button variant="outlined" className="morebtn" size="small"
+            onClick={this.historyPush.bind(this,`${routes.game.part.children.version.base}/33`)}
+            >
+            更多...
+          </Button>
           
         </DetailsBox>
       </div>

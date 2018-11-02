@@ -3,7 +3,7 @@ import logo from './images/logo.png';
 import './styles/index.less';
 import routes from './routes';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Link
 } from 'react-router-dom';
@@ -50,14 +50,16 @@ const theme = createMuiTheme({
   typography: {
     // In Japanese the characters are usually larger.
     fontSize: 14,
+    useNextVariants: true
   }
 });
 
 class App extends Component {
+  
   render() {
     
     return (
-      <Router>
+      <BrowserRouter>
         <MuiThemeProvider theme={theme}>
           <div className="App">   
             <Paper className="head">
@@ -67,6 +69,7 @@ class App extends Component {
                   <span>第二</span>
                 </div>
                 <div>
+                  <Link to={routes.game.list.path}>首页</Link>
                   <Link to={routes.game.list.path}>游戏</Link>
                   <Link to="/about">动态</Link>
                 </div>
@@ -79,7 +82,7 @@ class App extends Component {
             <div className="content">
               <Route path={routes.game.list.path} component={routes.game.list.component} />
               <Route path={routes.game.details.path} component={routes.game.details.component} />
-
+              <Route path={routes.game.part.path} component={routes.game.part.component} />
             </div>
             <footer>
               footer
@@ -87,7 +90,7 @@ class App extends Component {
           </div>
         </MuiThemeProvider>
 
-      </Router>
+      </BrowserRouter>
     );
   }
 }
