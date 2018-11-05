@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Link,
   withRouter
@@ -43,13 +43,11 @@ class componentInstance extends Component {
 
     
     return (
-      <Router>
       <div className="gamedetails">
 sysbook
           
         
       </div>
-      </Router>
     );
   }
 }

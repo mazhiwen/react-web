@@ -37,8 +37,8 @@ const theme = createMuiTheme({
     },
     MuiPaper:{
       root:{
-        padding:'2rem',
-        marginTop:3
+        // padding:'2rem',
+        // marginTop:3
       }
     },
     MuiExpansionPanelDetails:{
@@ -72,6 +72,7 @@ class App extends Component {
                   <Link to={routes.game.list.path}>首页</Link>
                   <Link to={routes.game.list.path}>游戏</Link>
                   <Link to="/about">动态</Link>
+                  <Link to="/about">问答</Link>
                 </div>
                 <div>
                   <Link to="/topics">我</Link>

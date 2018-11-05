@@ -21,17 +21,17 @@ class componentInstance extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabIndex:0,
+      tabIndex:'version',
       sortItemShow: false,
       params:{
         sortScore:''
       },
       expanded:''
-  
     };
   }
-  handleChange = (event, value) => {
+  handleTabIndexChange = (event, value) => {
     this.setState({ tabIndex:value });
+    this.historyPush(`${routes.game.part.base}/311/${value}`);
   };
   historyPush=(path)=>{
     this.props.history.push(path);
@@ -42,31 +42,35 @@ class componentInstance extends Component {
     
     return (
       
-      <div className="gamedetails">
+      <Paper className="gamepart">
         <Typography variant="h4">
           这是一个游戏名字
         </Typography>
-        <div>
-          <Button variant="contained" onClick={this.historyPush.bind(this,`${routes.game.part.children.version.base}/3`)}>
-            Link
-          </Button>
-          <Button variant="contained" onClick={this.historyPush.bind(this,`${routes.game.part.children.sysbook.base}/3`)}>
-            Link
-          </Button>
+        <AppBar position="static" color="default">
+          <Tabs fullWidth indicatorColor="primary"
+            textColor="primary" value={this.state.tabIndex}
+            onChange={this.handleTabIndexChange}>
+            <Tab label="文章" value="article"/>
+            <Tab label="界面操作" value="operate"/>
+            <Tab label="系统玩法" value="sysbook"/>
+            <Tab label="版本更新" value="version"/>
+          </Tabs>
+        </AppBar>
+        
+          <Switch>
+            <Route path={routes.game.part.children.version.path} component={routes.game.part.children.version.component} />
+            <Route path={routes.game.part.children.sysbook.path} component={routes.game.part.children.sysbook.component} />
 
-        </div>
-        <Switch>
-          {/* <Route path={routes.game.part.base} component={routes.game.part.component} /> */}
-          <Route path={`${match.url}/version/:id`} component={routes.game.part.children.version.component} />
-          <Route path={`${match.url}/sysbook/:id`} component={routes.game.part.children.sysbook.component} />
+          </Switch>
 
-        </Switch>
+        
+        
  
 
         part页面
           
         
-      </div>
+      </Paper>
       
     );
   }

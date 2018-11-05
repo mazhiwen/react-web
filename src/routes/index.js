@@ -22,12 +22,12 @@ export default {
       children:{
         version:{
           base:'/game/part/version',
-          path:'/game/part/version/:id',
+          path:'/game/part/:id/version',
           component:gameVersion
         },
         sysbook:{
           base:'/game/part/sysbook',
-          path:'/game/part/sysbook/:id',
+          path:'/game/part/:id/sysbook',
           component:gameSysBook
         }
 
