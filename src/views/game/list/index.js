@@ -68,7 +68,7 @@ handleClick=(value)=>{
 }
 handleGameItemClick = (id,event) => {
   // console.log(`${routes.game.details.path}/${id}`);
-  this.props.history.push(`${routes.game.details.base}/${id}`);
+  this.props.history.push(`${routes.game.details.base}/${id}/basic`);
 };
 render() {
   return (

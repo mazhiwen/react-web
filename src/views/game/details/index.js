@@ -21,7 +21,7 @@ class componentInstance extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabIndex:'article',
+      tabIndex:'basic',
       sortItemShow: false,
       params:{
         sortScore:''
@@ -41,23 +41,20 @@ class componentInstance extends Component {
 
     
     return (
-      
       <Paper className="gamedetails">
-        <Typography variant="h4">
+        <Typography variant="h4" style={{margin:'20px 10px'}}>
           这是一个游戏名字
         </Typography>
-        <AppBar position="static" color="default">
-          <Tabs 
-            value={this.state.tabIndex}
-            onChange={this.handleTabIndexChange}>
-            <Tab label="基本" value="basic"/>
-            <Tab label="社区" value="article"/>
-            <Tab label="界面操作" value="operate"/>
-            <Tab label="系统玩法" value="sysbook"/>
-            <Tab label="版本更新" value="version"/>
-          </Tabs>
-        </AppBar>
-        <div>
+        <Tabs 
+          value={this.state.tabIndex}
+          onChange={this.handleTabIndexChange}>
+          <Tab label="基本资料" value="basic"/>
+          <Tab label="文章" value="article"/>
+          <Tab label="界面操作" value="operate"/>
+          <Tab label="系统玩法" value="sysbook"/>
+          <Tab label="版本更新" value="version"/>
+        </Tabs>
+        <div className="details_box">
           <Switch>
             <Route path={routes.game.details.children.basic.path} component={routes.game.details.children.basic.component} />
             <Route path={routes.game.details.children.version.path} component={routes.game.details.children.version.component} />
@@ -66,15 +63,10 @@ class componentInstance extends Component {
             <Route path={routes.game.details.children.operate.path} component={routes.game.details.children.operate.component} />
           </Switch>
         </div>
-        
-        
- 
-
         details页面
           
         
       </Paper>
-      
     );
   }
 }

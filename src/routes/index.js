@@ -1,5 +1,4 @@
 import gameList from '../views/game/list'; 
-// import gameDetails from '../views/game/details'; 
 import gameDetails from '../views/game/details'; 
 import gameVersion from '../views/game/details/version'; 
 import gameSysBook from '../views/game/details/sysbook'; 
@@ -13,11 +12,6 @@ export default {
       path:'/game/list',
       component:gameList
     },
-    // details:{
-    //   base:'/game/details',
-    //   path:'/game/details/:id',
-    //   component:gameDetails
-    // },
     details:{
       base:'/game/details',
       path:'/game/details/:id',

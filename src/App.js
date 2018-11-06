@@ -70,9 +70,8 @@ class App extends Component {
                 </div>
                 <div>
                   <Link to={routes.game.list.path}>首页</Link>
-                  <Link to={routes.game.list.path}>游戏</Link>
-                  <Link to="/about">动态</Link>
-                  <Link to="/about">问答</Link>
+                  <Link to={routes.game.list.path}>游戏</Link>                  
+                  <Link to="/community">社区</Link>
                 </div>
                 <div>
                   <Link to="/topics">我</Link>

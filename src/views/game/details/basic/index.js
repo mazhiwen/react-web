@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter,
-  Route,
-  Link,
   withRouter
 } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
@@ -11,16 +8,15 @@ import routes from '../../../../routes';
 
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 function DetailsBox(props){
   return (
-    <Paper className="details_box">
+    <div>
       <Typography className="details_box_title" variant="subtitle1">
         {props.title}
       </Typography>
       {props.children}
-    </Paper>
+    </div>
   );
 }
 class componentInstance extends Component {
