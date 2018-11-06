@@ -12,6 +12,7 @@ import routes from '../../../../routes';
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {ArticlelistBox} from '../../../components';
 
 
 class componentInstance extends Component {
@@ -42,7 +43,7 @@ class componentInstance extends Component {
 
 
     return (
-      <div className="gamedetails">
+      <div>
         <div>
           <Button>问答</Button>
           <Button>评测报告</Button>  
@@ -50,7 +51,8 @@ class componentInstance extends Component {
           <Button>杂谈</Button>
         </div>
         <div>
-          
+          <ArticlelistBox></ArticlelistBox>
+          <ArticlelistBox></ArticlelistBox>
 
         </div>
       </div>

@@ -43,13 +43,34 @@ class componentInstance extends Component {
 
     
     return (
-      <Router>
-      <div className="gamedetails">
-operate
+      <div>
+        <TextField
+            label="v1.0.2" multiline disabled fullWidth 
+            InputProps={{
+              readOnly: true,
+            }}
+            defaultValue={
+`1.大大说das 
+2.的撒的奥迪
+`
+            }
+            margin="normal" variant="outlined" rowsMax="4"
+          />
+          <TextField
+            label="v1.0.2" multiline disabled fullWidth 
+            InputProps={{
+              readOnly: true,
+            }}
+            defaultValue={
+`1.大大说das 
+2.的撒的奥迪
+`
+            }
+            margin="normal" variant="outlined" rowsMax="4"
+          />
           
         
       </div>
-      </Router>
     );
   }
 }

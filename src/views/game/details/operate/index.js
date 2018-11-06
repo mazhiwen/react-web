@@ -12,6 +12,7 @@ import routes from '../../../../routes';
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import logo from '../../../../images/logo.png';
 
 
 class componentInstance extends Component {
@@ -43,8 +44,25 @@ class componentInstance extends Component {
 
     
     return (
-      <div className="gamedetails">
-222
+      <div>
+        <div className="operate_wrap">
+          <p className="caption">主界面</p>
+          <img src={logo} alt="logo"/>
+          <p>5.图片标数字，下方文字说明数字</p>
+          <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
+          <p>2.的撒的撒的撒的</p>
+          <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
+          <p>4.的撒的撒的撒的</p>
+        </div>
+        <div className="operate_wrap">
+          <p className="caption">二界面</p>
+          <img src={logo} alt="logo"/>
+          <p>0.图片标数字，下方文字说明数字</p>
+          <p>1.[快捷键k]打算的撒的撒的撒的dasd</p>
+          <p>2.的撒的撒的撒的</p>
+          <p>3.[快捷键k]打算的撒的撒的撒的dasd</p>
+          <p>4.的撒的撒的撒的</p>
+        </div>
           
         
       </div>

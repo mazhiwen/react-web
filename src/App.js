@@ -83,7 +83,6 @@ class App extends Component {
             <div className="content">
               <Route path={routes.game.list.path} component={routes.game.list.component} />
               <Route path={routes.game.details.path} component={routes.game.details.component} />
-              <Route path={routes.game.part.path} component={routes.game.part.component} />
             </div>
             <footer>
               footer
