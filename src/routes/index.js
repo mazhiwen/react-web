@@ -3,6 +3,8 @@ import gameDetails from '../views/game/details';
 import gamePart from '../views/game/part'; 
 import gameVersion from '../views/game/part/version'; 
 import gameSysBook from '../views/game/part/sysbook'; 
+import gameArticle from '../views/game/part/article'; 
+import gameOperate from '../views/game/part/operate'; 
 
 export default {
   game:{
@@ -21,14 +23,20 @@ export default {
       component:gamePart,
       children:{
         version:{
-          base:'/game/part/version',
           path:'/game/part/:id/version',
           component:gameVersion
         },
         sysbook:{
-          base:'/game/part/sysbook',
           path:'/game/part/:id/sysbook',
           component:gameSysBook
+        },
+        article:{
+          path:'/game/part/:id/article',
+          component:gameArticle
+        },
+        operate:{
+          path:'/game/part/:id/operate',
+          component:gameOperate
         }
 
       }

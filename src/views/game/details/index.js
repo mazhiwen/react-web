@@ -13,7 +13,7 @@ import routes from '../../../routes';
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+import {ArticlelistBox} from '../../components';
 
 function DetailsBox(props){
   return (
@@ -164,21 +164,6 @@ class componentInstance extends Component {
       return dom;
       
     }
-    const ArticlelistBox=(props)=>{
-      return (
-        <div className="article_box">
-          <h4 onClick={this.historyPush.bind(this,`${routes.game.details.base}/33`)}>
-          [官方]这是一个文章的标题
-          </h4>
-          <p>
-            Paper can be used to build surface or other elements for your application.Paper can be used to build surface or other elements for your application.
-            Paper can be used to build surface or other elements for your application.Paper can be used to build surface or other elements for your application.
-          </p>
-          <Divider className="article_box_hr"/>
-        </div>
-        
-      );
-    }
     
     return (
       <Router>
@@ -268,7 +253,7 @@ class componentInstance extends Component {
             margin="normal" variant="outlined" rowsMax="4"
           />
           <Button variant="outlined" className="morebtn" size="small"
-            onClick={this.historyPush.bind(this,`${routes.game.part.children.version.base}/33`)}
+            onClick={this.historyPush.bind(this,`${routes.game.part.base}/33/version`)}
             >
             更多...
           </Button>

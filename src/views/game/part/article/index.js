@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Link,
   withRouter
@@ -41,12 +41,18 @@ class componentInstance extends Component {
   render() {
 
 
-    
     return (
       <div className="gamedetails">
-222
+        <div>
+          <Button>问答</Button>
+          <Button>评测报告</Button>  
+          <Button>教程</Button>
+          <Button>杂谈</Button>
+        </div>
+        <div>
           
-        
+
+        </div>
       </div>
     );
   }

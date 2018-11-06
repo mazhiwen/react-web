@@ -11,8 +11,8 @@ import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 import routes from '../../../routes';
 
-import {Paper,SwipeableViews,AppBar,Tabs,Tab,Typography,
-  ExpansionPanel,ExpansionPanelSummary,TabContainer,
+import {Paper,AppBar,Tabs,Tab,Typography,
+  ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -21,7 +21,7 @@ class componentInstance extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabIndex:'version',
+      tabIndex:'article',
       sortItemShow: false,
       params:{
         sortScore:''
@@ -47,22 +47,23 @@ class componentInstance extends Component {
           这是一个游戏名字
         </Typography>
         <AppBar position="static" color="default">
-          <Tabs fullWidth indicatorColor="primary"
-            textColor="primary" value={this.state.tabIndex}
+          <Tabs 
+            value={this.state.tabIndex}
             onChange={this.handleTabIndexChange}>
-            <Tab label="文章" value="article"/>
+            <Tab label="社区" value="article"/>
             <Tab label="界面操作" value="operate"/>
             <Tab label="系统玩法" value="sysbook"/>
             <Tab label="版本更新" value="version"/>
           </Tabs>
         </AppBar>
-        
+        <div>
           <Switch>
             <Route path={routes.game.part.children.version.path} component={routes.game.part.children.version.component} />
             <Route path={routes.game.part.children.sysbook.path} component={routes.game.part.children.sysbook.component} />
-
+            <Route path={routes.game.part.children.article.path} component={routes.game.part.children.article.component} />
+            <Route path={routes.game.part.children.operate.path} component={routes.game.part.children.operate.component} />
           </Switch>
-
+        </div>
         
         
  

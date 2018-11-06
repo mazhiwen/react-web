@@ -43,11 +43,13 @@ class componentInstance extends Component {
 
     
     return (
+      <Router>
       <div className="gamedetails">
-222
+operate
           
         
       </div>
+      </Router>
     );
   }
 }
