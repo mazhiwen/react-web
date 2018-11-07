@@ -3,8 +3,8 @@ import {
   BrowserRouter as Router,
   withRouter
 } from 'react-router-dom';
-import logo from '../../../images/logo.png';
-import routes from '../../../routes';
+import logo from 'images/logo.png';
+import routes from 'routes';
 import {TextField,Button,Chip,Select,MenuItem,FormControl,InputLabel,Divider,Paper,FormControlLabel,FormGroup} from '@material-ui/core';
 import { withStyles,createStyles } from '@material-ui/core/styles';
 

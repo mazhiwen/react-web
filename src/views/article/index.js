@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import {
+  Route,
+  Switch,
+  withRouter
+} from 'react-router-dom';
+import routes from 'routes';
+
+import {Paper,AppBar,Tabs,Tab,Typography,
+  ExpansionPanel,ExpansionPanelSummary,
+  ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
+
+class componentInstance extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      params:{
+      },
+    };
+  }
+
+  historyPush=(path)=>{
+    this.props.history.push(path);
+  }
+  render() {
+
+    return (
+      <Paper>
+        <Switch>
+          <Route path={routes.game.details.children.basic.path} component={routes.game.details.children.basic.component} />
+          <Route path={routes.game.details.children.version.path} component={routes.game.details.children.version.component} />
+          <Route path={routes.game.details.children.sysbook.path} component={routes.game.details.children.sysbook.component} />
+          <Route path={routes.game.details.children.article.path} component={routes.game.details.children.article.component} />
+          <Route path={routes.game.details.children.operate.path} component={routes.game.details.children.operate.component} />
+        </Switch>
+      </Paper>
+    );
+  }
+}
+
+export default withRouter(componentInstance);

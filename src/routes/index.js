@@ -5,8 +5,17 @@ import gameSysBook from '../views/game/details/sysbook';
 import gameArticle from '../views/game/details/article'; 
 import gameOperate from '../views/game/details/operate'; 
 import gameBasic from '../views/game/details/basic'; 
-
+import community from '../views/community'; 
+import article from '../views/article'; 
+import articleView from '../views/article/view'; 
+import articleEdit from '../views/article/edit'; 
 export default {
+
+  community:{
+    base:'/community',
+    path:'/community',
+    component:community,
+  },
   game:{
     list:{
       path:'/game/list',
@@ -39,9 +48,28 @@ export default {
         }
 
       }
-    },
+    }
+  },
+  article:{
+    base:'/article',
+    path:'/article',
+    component:article,
+    children:{
+      view:{
+        base:'/article/view',
+        path:'/article/view/:id',
+        component:articleView
+      },
+      edit:{
+        base:'/article/edit',
+        path:'/article/edit/:id',
+        component:articleEdit
+      }
+
+    }
+  }  
     
-  }
+  
 
 
 

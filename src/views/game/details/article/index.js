@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
-import routes from '../../../../routes';
+import routes from 'routes';
 
 import {Paper,Typography,ExpansionPanel,ExpansionPanelSummary,
   ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
