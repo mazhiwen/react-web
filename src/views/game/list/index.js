@@ -101,7 +101,8 @@ render() {
         <div>
           {
             this.state.releaseYearList.map((value,key)=>
-              <Chip className="filter-value" key={key} variant="outlined" label={value.label} onClick={this.handleClick.bind(this,value.value)}/>
+              <Chip className="filter-value" key={key} variant="outlined" label={value.label} 
+              onClick={this.handleClick.bind(this,value.value)}/>
             )
           }
         </div>

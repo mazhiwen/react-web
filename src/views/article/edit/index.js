@@ -34,25 +34,14 @@ class componentInstance extends Component {
     let {match}=this.props;
 
     return (
-      <Paper className="page_community">
+      <Paper>
         <div>
-          <Button>广场</Button>
-          <Button>关注</Button>
-          <Button>发布</Button>  
+          
         </div>
         <Divider />
         <div>
-          社区页面
-
-
-
-
+          编写
           <Switch>
-            <Route path={routes.game.details.children.basic.path} component={routes.game.details.children.basic.component} />
-            <Route path={routes.game.details.children.version.path} component={routes.game.details.children.version.component} />
-            <Route path={routes.game.details.children.sysbook.path} component={routes.game.details.children.sysbook.component} />
-            <Route path={routes.game.details.children.article.path} component={routes.game.details.children.article.component} />
-            <Route path={routes.game.details.children.operate.path} component={routes.game.details.children.operate.component} />
           </Switch>
         </div>
           

@@ -38,7 +38,7 @@ class componentInstance extends Component {
         <div>
           <Button>广场</Button>
           <Button>关注</Button>
-          <Button>发布</Button>  
+          <Button onClick={this.historyPush.bind(this,`${routes.article.children.edit.base}/2`)}>发布</Button>  
         </div>
         <Divider />
         <div>

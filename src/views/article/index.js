@@ -27,11 +27,7 @@ class componentInstance extends Component {
     return (
       <Paper>
         <Switch>
-          <Route path={routes.game.details.children.basic.path} component={routes.game.details.children.basic.component} />
-          <Route path={routes.game.details.children.version.path} component={routes.game.details.children.version.component} />
-          <Route path={routes.game.details.children.sysbook.path} component={routes.game.details.children.sysbook.component} />
-          <Route path={routes.game.details.children.article.path} component={routes.game.details.children.article.component} />
-          <Route path={routes.game.details.children.operate.path} component={routes.game.details.children.operate.component} />
+          <Route path={routes.article.children.edit.path} component={routes.article.children.edit.component} />
         </Switch>
       </Paper>
     );
