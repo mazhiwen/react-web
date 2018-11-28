@@ -7,9 +7,9 @@ import {
 import { withStyles } from '@material-ui/core/styles';
 import routes from 'routes';
 
-import {Paper,AppBar,Tabs,Tab,Typography,
-  ExpansionPanel,ExpansionPanelSummary,
-  ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
+import {Paper,Select,MenuItem,Tab,Typography,
+  FormControl,InputLabel,
+  InputAdornment,Chip,List,TextField,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {
   Editor, EditorState,RichUtils,
@@ -123,13 +123,26 @@ function getBlockStyle(block) {
 class componentInstance extends Component {
   constructor(props) {
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
+    this.state = {
+      editorState: EditorState.createEmpty(),
+      articleType:10,
+      chipData: [
+        { key: 0, label: 'Angular' },
+        { key: 1, label: 'jQuery' },
+        { key: 2, label: 'Polymer' },
+        { key: 3, label: 'React' },
+        { key: 4, label: 'Vue.js' },
+      ]
+    };
     this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({editorState});
     this.handleKeyCommand = this._handleKeyCommand.bind(this);
     this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
     this.toggleBlockType = this._toggleBlockType.bind(this);
     this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
+    this.deleteChip=this.deleteChip.bind(this);
+    this.articleTypeChange = this.articleTypeChange.bind(this);
+  
   }
   componentDidMount(){
   }
@@ -174,11 +187,28 @@ class componentInstance extends Component {
   onEditorChange = (editorState) => {
     this.setState({editorState}); 
   }
+  articleTypeChange=(event)=>{
+    this.setState({
+      articleType:event.target.value
+    }); 
+  }
   historyPush=(path)=>{
     this.props.history.push(path);
   }
   _onBoldClick() {
     this.onEditorChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
+  }
+  deleteChip= data => () => {
+    if (data.label === 'React') {
+      alert('Why would you want to delete React?! :)'); // eslint-disable-line no-alert
+      return;
+    }
+    this.setState(state => {
+      const chipData = [...state.chipData];
+      const chipToDelete = chipData.indexOf(data);
+      chipData.splice(chipToDelete, 1);
+      return { chipData };
+    });
   }
   render() {
     let {match}=this.props;
@@ -193,6 +223,44 @@ class componentInstance extends Component {
     return (
       <Paper>
         <div>
+          <FormControl style={{minWidth:120}}>
+            <InputLabel>文章类型</InputLabel>
+            <Select
+              value={this.state.articleType}
+              onChange={this.articleTypeChange}
+            >
+              <MenuItem value={10}>动态</MenuItem>
+              <MenuItem value={20}>问答</MenuItem>
+              <MenuItem value={30}>文章</MenuItem>
+            </Select>
+          </FormControl>  
+          <TextField
+            label="标签"
+            placeholder="Placeholder"
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            InputProps={{
+              style:{
+                paddingTop:10,
+                paddingBottom:10
+              },
+              startAdornment: 
+                <InputAdornment position="start">
+                  {this.state.chipData.map(data => {
+                    return (
+                      <Chip
+                        key={data.key}
+                        label={data.label}
+                        onDelete={this.deleteChip(data)}
+                      />
+                    );
+                  })}
+                </InputAdornment>,
+            }}
+          />
           
         </div>
         <Divider />
