@@ -367,7 +367,7 @@ class componentInstance extends Component {
       }
     }
     return (
-      <Paper>
+      <Paper style={{padding:20}}>
         <div>
           <FormControl style={{minWidth:120}}>
             <InputLabel>文章类型</InputLabel>
@@ -380,38 +380,11 @@ class componentInstance extends Component {
               <MenuItem value={30}>文章</MenuItem>
             </Select>
           </FormControl>  
-          <TextField
-            label="标签"
-            placeholder="Placeholder"
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              style:{
-                paddingTop:10,
-                paddingBottom:10
-              },
-              startAdornment: 
-                <InputAdornment position="start">
-                  {this.state.chipData.map(data => {
-                    return (
-                      <Chip
-                        key={data.key}
-                        label={data.label}
-                        onDelete={this.deleteChip(data)}
-                      />
-                    );
-                  })}
-                </InputAdornment>,
-            }}
-          />
           <IntegrationReactSelect></IntegrationReactSelect>
                     
         </div>
         <Divider />
-        <div>
+        <div style={{marginTop:20}}>
           <div className="RichEditor-root">
             <BlockStyleControls
               editorState={editorState}

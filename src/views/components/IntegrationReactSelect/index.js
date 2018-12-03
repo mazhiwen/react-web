@@ -55,7 +55,7 @@ const suggestions = [
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    height: 250,
+    // height: 250,
   },
   input: {
     display: 'flex',
@@ -235,7 +235,7 @@ class IntegrationReactSelect extends React.Component {
     return (
       <div className={classes.root}>
         <NoSsr>
-          <Select
+          {/*<Select
             classes={classes}
             styles={selectStyles}
             options={suggestions}
@@ -243,7 +243,7 @@ class IntegrationReactSelect extends React.Component {
             value={this.state.single}
             onChange={this.handleChange('single')}
             placeholder="Search a country (start with a)"
-          />
+          />*/}
           <div className={classes.divider} />
           <Select
             classes={classes}
