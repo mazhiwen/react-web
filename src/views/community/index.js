@@ -6,10 +6,10 @@ import {
 } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import routes from 'routes';
+import logo from 'images/logo.png';
 
-import {Paper,AppBar,Tabs,Tab,Typography,
-  ExpansionPanel,ExpansionPanelSummary,
-  ExpansionPanelDetails,Button,List,TextField,Divider} from '@material-ui/core';
+import {Paper,Avatar,Tabs,Tab,Typography,
+  Grid,Button,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
@@ -34,30 +34,49 @@ class componentInstance extends Component {
     let {match}=this.props;
 
     return (
-      <Paper className="page_community">
-        <div>
-          <Button>广场</Button>
-          <Button>关注</Button>
-          <Button onClick={this.historyPush.bind(this,`${routes.article.children.edit.base}/2`)}>发布</Button>  
-        </div>
-        <Divider />
-        <div>
-          社区页面
-
-
-
-
-          <Switch>
-            <Route path={routes.game.details.children.basic.path} component={routes.game.details.children.basic.component} />
-            <Route path={routes.game.details.children.version.path} component={routes.game.details.children.version.component} />
-            <Route path={routes.game.details.children.sysbook.path} component={routes.game.details.children.sysbook.component} />
-            <Route path={routes.game.details.children.article.path} component={routes.game.details.children.article.component} />
-            <Route path={routes.game.details.children.operate.path} component={routes.game.details.children.operate.component} />
-          </Switch>
-        </div>
-          
+      <div className="page_community">
+        <Paper  style={{marginBottom:3}}>
+          <div>
+            <Button>广场</Button>
+            <Button>关注</Button>
+            <Button onClick={this.historyPush.bind(this,`${routes.article.children.edit.base}/2`)}>发布</Button>  
+          </div>
+        </Paper>
         
-      </Paper>
+        <Paper className="messagewrap">
+          <Typography variant="body1">
+            这是一个动态消息的正文
+            details
+
+            
+          </Typography>
+          <Divider style={{marginTop:10,marginBottom:5}}/>
+          <Grid container justify="flex-start" alignItems="center">
+            <Avatar style={{width:25,height:25}} src={logo} />
+            <Typography style={{marginLeft:10,marginRight:20}}variant="caption">
+              用户作者xxx
+            </Typography>
+            <Typography variant="caption">
+              12-03 15:04
+            </Typography>
+            <Button size="small">           
+              评论
+            </Button>     
+          </Grid>
+          {/*<div>
+            <Divider />
+            <div>
+              这是一条评论    12-03 15:04  
+            </div>
+            <div>
+              这是一条评论    04-15 15:04  
+            </div>
+            <div>
+              这是一条评论    2015-04-15 15:04  
+            </div>
+          </div>*/}
+        </Paper>
+      </div>
     );
   }
 }
