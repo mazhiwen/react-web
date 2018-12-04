@@ -7,7 +7,7 @@ import {
 import { withStyles } from '@material-ui/core/styles';
 import routes from 'routes';
 import logo from 'images/logo.png';
-
+import Comment from '@material-ui/icons/Comment';
 import {Paper,Avatar,Tabs,Tab,Typography,
   Grid,Button,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -44,38 +44,58 @@ class componentInstance extends Component {
         </Paper>
         
         <Paper className="messagewrap">
-          <Typography variant="body1">
-            这是一个动态消息的正文
-            details
-
-            
-          </Typography>
-          <Divider style={{marginTop:10,marginBottom:5}}/>
-          <Grid container justify="flex-start" alignItems="center">
-            <Avatar style={{width:25,height:25}} src={logo} />
-            <Typography style={{marginLeft:10,marginRight:20}}variant="caption">
+          <Grid className="messagehead" container justify="flex-start" alignItems="center">
+            <Avatar className="messageheadpic" src={logo} />
+            <Typography style={{marginLeft:5,marginRight:15}} variant="body2">
               用户作者xxx
             </Typography>
             <Typography variant="caption">
               12-03 15:04
-            </Typography>
-            <Button size="small">           
-              评论
-            </Button>     
+            </Typography>    
           </Grid>
-          {/*<div>
-            <Divider />
-            <div>
-              这是一条评论    12-03 15:04  
+          <Divider style={{marginTop:5,marginBottom:10}}/>
+          <Typography className="messagecontext" variant="body1">
+            这是一个动态消息的正文
+            details
+          </Typography>            
+          <Button className="commentbtn" size="small">           
+            <Comment/> 评论 
+          </Button>     
+          <Divider/>
+          <div className="messagecommentwrap">
+            <div className="messagecomment">
+              <Typography variant="body2">
+                这是一条评论
+              </Typography>
+              <Grid container justify="flex-start" alignItems="center">
+                <Avatar className="messageheadpic" src={logo} />
+                <Typography style={{marginLeft:5,marginRight:15}} variant="body2">
+                  用户评论xxx
+                </Typography>
+                <Typography variant="caption">
+                  12-03 15:04
+                </Typography>
+              </Grid>
             </div>
-            <div>
-              这是一条评论    04-15 15:04  
+            <div className="messagecomment">
+              <Typography variant="body2">
+                这是一条评论123123213
+              </Typography>
+              <Grid container justify="flex-start" alignItems="center">
+                <Avatar className="messageheadpic" src={logo} />
+                <Typography style={{marginLeft:5,marginRight:15}} variant="body2">
+                  用户评论31xxx
+                </Typography>
+                <Typography variant="caption">
+                  12-03 15:04
+                </Typography>
+              </Grid>
             </div>
-            <div>
-              这是一条评论    2015-04-15 15:04  
-            </div>
-          </div>*/}
+            
+          </div>
         </Paper>
+          
+        
       </div>
     );
   }
