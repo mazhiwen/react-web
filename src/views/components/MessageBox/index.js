@@ -7,27 +7,43 @@ import Comment from '@material-ui/icons/Comment';
 import TouchApp from '@material-ui/icons/TouchApp';
 
 import {Paper,Avatar,Typography,
-  Grid,Button,Divider} from '@material-ui/core';
+  Grid,Button,Divider,
+  TextField
+} from '@material-ui/core';
+import Pagination from "material-ui-flat-pagination";
 
 
 
-
-
+//评论实体组件
 class MessageComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShowReply:false
+      isShowReply:false,
+      page:0,
+      rowsPerPage:5,
+      offset:0,
+      commentTxt:''
     };
     this.openReply=this.openReply.bind(this);
+    this.handleChangePage=this.handleChangePage.bind(this);
+    this.commentTxtChange=this.commentTxtChange.bind(this);
   }
   openReply=()=>{
     this.setState({
       isShowReply:!this.state.isShowReply
     });
   }
+  handleChangePage = (event, offset) => {
+    this.setState({ offset });
+  };
+  commentTxtChange=  event => {
+    this.setState({
+      commentTxt: event.target.value,
+    });
+  };
   render(){
-    const {isShowReply} = this.state;
+    const {isShowReply,page,rowsPerPage,offset} = this.state;
     return (
       <div className="messagecomment">
         <Typography variant="body2">
@@ -39,12 +55,12 @@ class MessageComment extends Component {
             用户评论xxx
           </Typography>
           <Typography variant="caption">
-            12-03 15:04
+            12-01 15:04
           </Typography>
           <Button size="small" className="commentoperate"
             onClick={this.openReply}
           >
-            回复
+            <Comment/> 43
           </Button>
           <Button size="small">
             <TouchApp/>32
@@ -52,35 +68,55 @@ class MessageComment extends Component {
         </Grid>
         {isShowReply&&<div className="messagereplywrap">
           <Divider/>
-          <div className="messagereply">
-            <Typography variant="body2">
-              这是一条回复
-            </Typography>
-            <Grid container justify="flex-start" alignItems="center">
-              <Avatar className="messageheadpic" src={logo} />
-              <Typography style={{marginLeft:5,marginRight:15}} variant="body2">
-                用户评论xxx
+          <div className="replaybody">
+            <div className="replayitem">
+              <Typography variant="body2">
+                这是一条回复
               </Typography>
-              <Typography variant="caption">
-                12-03 15:04
+              <Grid container justify="flex-start" alignItems="center">
+                <Avatar className="messageheadpic" src={logo} />
+                <Typography style={{marginLeft:5,marginRight:15}} variant="body2">
+                  用户评论xxx
+                </Typography>
+                <Typography variant="caption">
+                  12-03 15:04
+                </Typography>
+                <Button size="small" className="commentoperate"
+                  onClick={this.openReply}
+                >
+                  回复
+                </Button>
+              </Grid>
+            </div>
+            <div className="replayitem">
+              <Typography variant="body2">
+                这是一条回复
               </Typography>
-            </Grid>
+              <Grid container justify="flex-start" alignItems="center">
+                <Avatar className="messageheadpic" src={logo} />
+                <Typography style={{marginLeft:5,marginRight:15}} variant="body2">
+                  用户评论xxx
+                </Typography>
+                <Typography variant="caption">
+                  12-02 15:04
+                </Typography>
+              </Grid>
+            </div>
+            <TextField
+              className="replayitem"
+              label="评论回复" multiline rowsMax="4"
+              value={this.state.commentTxt}
+              onChange={this.commentTxtChange}
+              fullWidth variant="outlined"
+            />
+            <div className="replayitem">
+              <Pagination
+                limit={10} style={{display:"inlineblock"}} 
+                offset={offset} total={100}
+                reduced={true} onClick={this.handleChangePage} size='small'
+              />
+            </div>
           </div>
-          <div className="messagereply">
-            <Typography variant="body2">
-              这是一条回复
-            </Typography>
-            <Grid container justify="flex-start" alignItems="center">
-              <Avatar className="messageheadpic" src={logo} />
-              <Typography style={{marginLeft:5,marginRight:15}} variant="body2">
-                用户评论xxx
-              </Typography>
-              <Typography variant="caption">
-                12-03 15:04
-              </Typography>
-            </Grid>
-          </div>
-
         </div>}
         
       </div>
