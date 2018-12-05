@@ -8,7 +8,7 @@ import TouchApp from '@material-ui/icons/TouchApp';
 
 import {Paper,Avatar,Typography,
   Grid,Button,Divider,
-  TextField
+  TextField,InputAdornment
 } from '@material-ui/core';
 import Pagination from "material-ui-flat-pagination";
 
@@ -101,6 +101,19 @@ class MessageComment extends Component {
               value={this.state.replyTxt}
               onChange={this.replyTxtChange}
               fullWidth variant="outlined"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <Button
+                      size="small"
+                      variant="contained"
+                      // onClick={this.handleClickShowPassword}
+                    >
+                      发布
+                    </Button>
+                  </InputAdornment>
+                ),
+              }}
             />
             <div className="replayitem">
               <Pagination

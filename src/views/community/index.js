@@ -11,7 +11,6 @@ import Comment from '@material-ui/icons/Comment';
 import {Paper,Avatar,Tabs,Tab,Typography,
   Grid,Button,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {MessageBox} from 'components';
 
 class componentInstance extends Component {
   constructor(props) {
@@ -22,6 +21,7 @@ class componentInstance extends Component {
         sortScore:''
       },
     };
+
   }
   handleTabIndexChange = (event, value) => {
     this.setState({ tabIndex:value });
@@ -37,14 +37,24 @@ class componentInstance extends Component {
       <div className="page_community">
         <Paper  style={{marginBottom:3}}>
           <div>
-            <Button>广场</Button>
-            <Button>关注</Button>
-            <Button onClick={this.historyPush.bind(this,`${routes.article.children.edit.base}/2`)}>发布</Button>  
+            <Button onClick={this.historyPush.bind(this,`${routes.community.children.square.path}`)}>广场</Button>
+            <Button onClick={this.historyPush.bind(this,`${routes.community.children.focus.path}`)}>关注</Button>
+            <Button onClick={this.historyPush.bind(this,`${routes.community.children.edit.base}/2`)}>发布</Button>  
           </div>
         </Paper>
-        <MessageBox/>
-          
-        
+        <Route 
+          path={routes.community.children.square.path} 
+          component={routes.community.children.square.component} 
+        />
+        <Route 
+          path={routes.community.children.focus.path} 
+          component={routes.community.children.focus.component} 
+        />
+        <Route 
+          path={routes.community.children.edit.path} 
+          component={routes.community.children.edit.component} 
+        />
+        {/*<Route path={routes.article.path} component={routes.article.component} /> */}
       </div>
     );
   }

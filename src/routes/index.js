@@ -9,12 +9,29 @@ import community from '../views/community';
 import article from '../views/article'; 
 import articleView from '../views/article/view'; 
 import articleEdit from '../views/article/edit'; 
+import {Dynamic} from 'components';
+
 export default {
 
   community:{
     base:'/community',
     path:'/community',
     component:community,
+    children:{
+      square:{
+        path:'/community/square',
+        component:Dynamic
+      },
+      focus:{
+        path:'/community/focus',
+        component:Dynamic
+      },
+      edit:{
+        base:'/community/edit',
+        path:'/community/edit/:id',
+        component:articleEdit
+      }
+    }
   },
   game:{
     list:{
