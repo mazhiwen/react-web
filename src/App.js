@@ -15,16 +15,16 @@ import { light } from '@material-ui/core/styles/createPalette';
 const theme = createMuiTheme({
   palette: {
     type:'light',
-    primary: { 
-      main: '#1a1a1a', 
-      // light:'#909090',
-      // dark:'#515151'
-    }, 
-    secondary: { 
-      main: '#90caf9',
-      // light:'#a6d4fa',
-      // dark:'#648dae'
-    }, 
+    // primary: { 
+    //   main: '#757575', 
+    //   light:'#ffffff',
+    //   dark:'#c7c7c7'
+    // }, 
+    // secondary: { 
+    //   main: '#e0e0e0',
+    //   light:'#ffffff',
+    //   dark:'#aeaeae'
+    // }, 
     text:{
       primary:'#757575'
     }
@@ -66,9 +66,9 @@ class App extends Component {
               <div className="head-inner">
                 <div className="head-left">
                   <img className="logo" src={logo} alt="logo"/>
-                  <span>第二</span>
+                  <span>泛娱乐</span>
                 </div>
-                <div>
+                <div className="head-mainnav">
                   <Link to={routes.game.list.path}>首页</Link>
                   <Link to={routes.game.list.path}>游戏</Link>                  
                   <Link to="/community">社区</Link>

@@ -6,7 +6,7 @@
 body{
   background: #f6f6f6;
   font-size: 14px;
-  color: @main-color;
+  color: @main-txtcolor;
   font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
 }
 p,h1,h2,h3,h4,h5,h6{
@@ -36,9 +36,8 @@ p{
 
 .head{
   border-radius: 0 !important;
-  color: @main-color;
   .head-inner{
-    width: 1000px;
+    width: 1100px;
     display: flex;
     height: 52px;
     justify-content:space-between;
@@ -51,10 +50,24 @@ p{
   .head-left{
     .logo{
       width: 50px;
-      animation: App-logo-spin infinite 20s linear;
+      // animation: App-logo-spin infinite 20s linear;
     }
     >*{
       vertical-align: middle;
+    }
+  }
+  .head-mainnav{
+    height: 100%;
+    >*{
+      display: inline-block;
+      height: 100%;
+      padding: 0 20px;
+      line-height: 50px;
+      font-size: 1rem;
+    }
+    >*:hover{
+      // color: @second-color;
+      border-bottom: 3px solid @second-color;
     }
   }
 }
@@ -69,9 +82,9 @@ p{
 }
 a{
   text-decoration: none;
-  color: @main-color;
+  color: @main-txtcolor;
   &:hover,&:focus{
-    color: #454545;
+    color: @second-txtcolor;
   }
 }
 
@@ -85,7 +98,7 @@ a{
 
 
 .sl-paper{
-  padding:0.8rem 1.5rem;
+  padding:1rem 1.5rem 1.2rem;
   margin:0 0 @second-margin 0;
 }
 

@@ -41,8 +41,8 @@ class componentInstance extends Component {
 
     
     return (
-      <Paper className="gamedetails">
-        <Typography variant="h4" style={{margin:'20px 10px'}}>
+      <Paper className="gamedetails sl-paper" >
+        <Typography variant="h5" style={{margin:'10px 0'}}>
           这是一个游戏名字
         </Typography>
         <Tabs 
@@ -54,6 +54,7 @@ class componentInstance extends Component {
           <Tab label="系统玩法" value="sysbook"/>
           <Tab label="版本更新" value="version"/>
         </Tabs>
+        <Divider/>
         <div className="details_box">
           <Switch>
             <Route path={routes.game.details.children.basic.path} component={routes.game.details.children.basic.component} />
