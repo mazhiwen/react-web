@@ -10,9 +10,14 @@ import article from '../views/article';
 import articleView from '../views/article/view'; 
 import articleEdit from '../views/article/edit'; 
 import {Dynamic} from 'components';
+import Home from '../views/home'; 
 
 export default {
-
+  home:{
+    base:'/home',
+    path:'/home',
+    component:Home,
+  },
   community:{
     base:'/community',
     path:'/community',

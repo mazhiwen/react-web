@@ -122,9 +122,12 @@ render() {
           value={this.state.sortItemShow}
           onChange={this.handleChange()}
           fullWidth variant="outlined"
+          inputProps={{
+            className:"searchinput"
+          }} 
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment position="end" >
                 <Button
                   size="small" color="primary"
                   variant="contained"
