@@ -12,6 +12,25 @@ import {Paper,Avatar,Tabs,Tab,Typography,
   Grid,Button,Divider} from '@material-ui/core';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+
+
+function PaperBox(props){
+  return(
+    <Paper className="paper_box" style={{marginBottom:3}}>
+      <Typography className="paper_box_title" variant="subtitle2">{props.title}</Typography>
+      <Divider/>
+      <div className="paper_box_content">
+        
+        {props.children}
+      </div>
+    </Paper>
+  )
+}
+
+
+
+
+
 class componentInstance extends Component {
   constructor(props) {
     super(props);
@@ -34,27 +53,59 @@ class componentInstance extends Component {
     let {match}=this.props;
 
     return (
-      <div className="page_community">
-        <Paper  style={{marginBottom:3}}>
-          <div>
-            <Button onClick={this.historyPush.bind(this,`${routes.community.children.square.path}`)}>广场</Button>
-            <Button onClick={this.historyPush.bind(this,`${routes.community.children.focus.path}`)}>关注</Button>
-            <Button onClick={this.historyPush.bind(this,`${routes.community.children.edit.base}/2`)}>发布</Button>  
-          </div>
-        </Paper>
-        <Route 
-          path={routes.community.children.square.path} 
-          component={routes.community.children.square.component} 
-        />
-        <Route 
-          path={routes.community.children.focus.path} 
-          component={routes.community.children.focus.component} 
-        />
-        <Route 
-          path={routes.community.children.edit.path} 
-          component={routes.community.children.edit.component} 
-        />
-        {/*<Route path={routes.article.path} component={routes.article.component} /> */}
+      <div className="page_home ">
+        <Grid container spacing={8}>
+          <Grid item xs={12}>
+            <PaperBox title="今日热门 这里的内容和动态的一样，不过热门点数是只统计今日的">
+              <div>
+                [教程]逆水寒新手须知
+              </div>
+              <div>
+                [体验]我为什么离开逆水寒
+              </div>
+            </PaperBox>
+          </Grid>
+          <Grid item xs={6}>
+            <PaperBox title="评分排行">
+              <div>
+                游戏a
+              </div>
+              <div>
+                游戏bbbb
+              </div>
+            </PaperBox>
+          </Grid>
+          <Grid item xs={6}>
+            <PaperBox title="画面排行">
+              <div>
+                游戏a
+              </div>
+              <div>
+                游戏bbbb
+              </div>
+            </PaperBox>
+          </Grid>
+          <Grid item xs={6}>
+            <PaperBox title="评分排行">
+              <div>
+                游戏a
+              </div>
+              <div>
+                游戏bbbb
+              </div>
+            </PaperBox>
+          </Grid>
+          <Grid item xs={6}>
+            <PaperBox title="画面排行">
+              <div>
+                游戏a
+              </div>
+              <div>
+                游戏bbbb
+              </div>
+            </PaperBox>
+          </Grid>
+        </Grid>
       </div>
     );
   }

@@ -69,7 +69,7 @@ class App extends Component {
                   <span>泛娱乐</span>
                 </div>
                 <div className="head-mainnav">
-                  <Link to={routes.game.list.path}>首页</Link>
+                  <Link to={routes.home.path}>首页</Link>
                   <Link to={routes.game.list.path}>游戏</Link>                  
                   <Link to="/community">社区</Link>
                 </div>
@@ -80,6 +80,7 @@ class App extends Component {
               </div>
             </Paper>
             <div className="content">
+              <Route path={routes.home.path} component={routes.home.component} />
               <Route path={routes.game.list.path} component={routes.game.list.component} />
               <Route path={routes.game.details.path} component={routes.game.details.component} />
               <Route path={routes.community.path} component={routes.community.component} />
