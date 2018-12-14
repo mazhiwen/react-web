@@ -66,7 +66,7 @@ class App extends Component {
               <div className="head-inner">
                 <div className="head-left">
                   <img className="logo" src={logo} alt="logo"/>
-                  <span>泛娱乐</span>
+                  <span>川川网络</span>
                 </div>
                 <div className="head-mainnav">
                   <Link to={routes.home.path}>首页</Link>
